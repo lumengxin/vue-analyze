@@ -18,6 +18,7 @@ import {
   defineReactive
 } from '../util/index'
 
+// 全局方法
 export function initGlobalAPI (Vue: GlobalAPI) {
   // config
   const configDef = {}
@@ -60,6 +61,7 @@ export function initGlobalAPI (Vue: GlobalAPI) {
   // components with in Weex's multi-instance scenarios.
   Vue.options._base = Vue
 
+  // 内置组件keep-alive
   extend(Vue.options.components, builtInComponents)
 
   initUse(Vue)
