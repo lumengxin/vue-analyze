@@ -38,9 +38,10 @@
     "vue-template-compiler": "^2.6.11"
   },
   "lint-staged": {
-    "**/*.{js,vue}": [
-      "prettier-eslint --write",
-      "git add"
+    "*.{js,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add -A"
     ]
   },
   "husky": {
