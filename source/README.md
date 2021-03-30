@@ -70,6 +70,12 @@ Virtual DOM是一个原生的js对象去描述一个DOM节点，代价小。用V
 
 vue利用createElement方法创建VNode,定义在`source\vue\src\core\vdom\create-element.js`
 
+### update
+
+_update是实例的一个私有方法，调用的时机，首次渲染、数据更新。
+
+作用是把VNode渲染成真是的DOM，定义在`source\vue\src\core\instance\lifecycle.js`
+
 
 ## 组件化
 
