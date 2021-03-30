@@ -77,6 +77,7 @@ if (process.env.NODE_ENV !== 'production') {
   }
 
   initProxy = function initProxy (vm) {
+    // 判断浏览器是否支持proxy, 对对象访问做劫持
     if (hasProxy) {
       // 确定要使用的代理处理程序
       const options = vm.$options

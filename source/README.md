@@ -60,6 +60,8 @@ render()函数 $mount方法
 
 source\vue\src\core\instance\render.js
 
+返回一个VNode
+
 
 ## 组件化
 
