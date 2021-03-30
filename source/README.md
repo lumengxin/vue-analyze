@@ -62,6 +62,14 @@ source\vue\src\core\instance\render.js
 
 返回一个VNode
 
+### Virtual DOM
+
+浏览器dom是非常‘昂贵’的，真正的dom元素是非常庞大的，频繁去做dom更新，会产生一定的性能问题。
+
+Virtual DOM是一个原生的js对象去描述一个DOM节点，代价小。用VNode这么一个Class去描述，定义在`src/core/vdom/vnode.js`中。
+
+vue利用createElement方法创建VNode,定义在`source\vue\src\core\vdom\create-element.js`
+
 
 ## 组件化
 
