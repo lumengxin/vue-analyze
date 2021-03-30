@@ -16,7 +16,7 @@ function Vue (options) {
 }
 
 // 向vue原型上挂载一些方法
-initMixin(Vue)
+initMixin(Vue)  // 初始化。定义uid, 合并option
 stateMixin(Vue)
 eventsMixin(Vue)
 lifecycleMixin(Vue)

@@ -46,6 +46,7 @@ export function proxy (target: Object, sourceKey: string, key: string) {
 }
 
 export function initState (vm: Component) {
+  // options中执行顺序
   vm._watchers = []
   const opts = vm.$options
   if (opts.props) initProps(vm, opts.props)
@@ -103,6 +104,7 @@ function initProps (vm: Component, propsOptions: Object) {
     // during Vue.extend(). We only need to proxy props defined at
     // instantiation here.
     if (!(key in vm)) {
+      // _data代理访问（_默认私有属性，不予许访问）
       proxy(vm, `_props`, key)
     }
   }
@@ -111,6 +113,7 @@ function initProps (vm: Component, propsOptions: Object) {
 
 function initData (vm: Component) {
   let data = vm.$options.data
+  // data通常是一个函数
   data = vm._data = typeof data === 'function'
     ? getData(data, vm)
     : data || {}
@@ -124,6 +127,7 @@ function initData (vm: Component) {
   }
   // proxy data on instance
   const keys = Object.keys(data)
+  // props中不能重复定义，最终都会挂载到vm实例上
   const props = vm.$options.props
   const methods = vm.$options.methods
   let i = keys.length
@@ -147,7 +151,7 @@ function initData (vm: Component) {
       proxy(vm, `_data`, key)
     }
   }
-  // observe data
+  // observe data 响应式处理
   observe(data, true /* asRootData */)
 }
 

@@ -1,4 +1,5 @@
 # Vue源码分析(v2.6.12)
+
 ## 准备工作
 
 ### 认识Flow
@@ -27,6 +28,45 @@ vue-cli初始化项目会询问使用Runtime Only版本还是Runtime+Compiler版
 - Runtime Only：只包含运行时的vue代码，体积轻
 - Runtime+Compiler：写template属性，需要编译成render函数，对性能有损耗
 
-### 从入口开始
+## 数据驱动
+
+数据驱动，是指视图是有数据驱动生成的，我们对视图的修改，不会直接操作dom,而是通过修改数据。
+
+采用简洁的模板语法来声明式的将数据渲染到dom
+```
+<div id="app">
+  {{ msg }}
+</div>
+
+// new Vue 执行 core/instance/index.js中构造函数 -> init.js初始工作(定义uid,合并options...)
+var app = new Vue({
+  el: '#app',
+  data: {
+    msg: 'hello vue'
+  }
+})
+```
+### new Vue执行
+执行顺序：source\vue\src\core\instance\state.js
+props - methods - data - computed - watch
+
+### 实例挂载
+
+编译过程：source\vue\src\platforms\web\entry-runtime-with-compiler.js
+
+render()函数 $mount方法
+
+### render
+
+source\vue\src\core\instance\render.js
+
+
+## 组件化
+
+## 响应式原理
+
+## 编译
+
+## 扩展
 
 
